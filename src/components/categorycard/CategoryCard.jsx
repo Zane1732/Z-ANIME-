@@ -159,24 +159,37 @@ const CategoryCard = React.memo(
                             </p>
                           </div>
                         )}
-                        <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
-                          {item.tvInfo.showType.split(" ").shift()}
-                        </div>
-                        <div className="w-0.5 h-0.5 rounded-full bg-white/60"></div>
-                        <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
-                          {item.tvInfo?.duration === "m" ||
-                          item.tvInfo?.duration === "?" ||
-                          item.duration === "m" ||
-                          item.duration === "?"
-                            ? "N/A"
-                            : item.tvInfo?.duration || item.duration || "N/A"}
-                        </div>
+                        {item.tvInfo?.showType && (
+                          <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
+                            {item.tvInfo.showType.split(" ").shift()}
+                          </div>
+                        )}
+                        {item.releaseDate && (
+                          <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
+                            {item.releaseDate}
+                          </div>
+                        )}
+                        {!item.tvInfo?.showType && item.type && (
+                          <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
+                            {item.type}
+                          </div>
+                        )}
+                        {(item.tvInfo?.duration || item.duration) && (
+                          <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
+                            {item.tvInfo?.duration === "m" ||
+                            item.tvInfo?.duration === "?" ||
+                            item.duration === "m" ||
+                            item.duration === "?"
+                              ? "N/A"
+                              : item.tvInfo?.duration || item.duration || "N/A"}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
                   <Link
                     to={`/${item.id}`}
-                    className="text-white font-semibold mt-3 item-title hover:text-[#FFBADE] hover:cursor-pointer line-clamp-1"
+                    className="text-white font-semibold mt-3 item-title hover:text-white hover:cursor-pointer line-clamp-1"
                   >
                     {language === "EN" ? item.title : item.japanese_title}
                   </Link>
@@ -189,7 +202,7 @@ const CategoryCard = React.memo(
               ))}
             </div>
           )}
-          <div className="grid grid-cols-6 gap-x-3 gap-y-8 mt-6 transition-all duration-300 ease-in-out max-[1400px]:grid-cols-4 max-[758px]:grid-cols-3 max-[478px]:grid-cols-3 max-[478px]:gap-x-2">
+          <div className={`grid ${cardStyle || 'grid-cols-6 max-[1400px]:grid-cols-4 max-[758px]:grid-cols-3 max-[478px]:grid-cols-3'} gap-x-3 gap-y-8 mt-6 transition-all duration-300 ease-in-out max-[478px]:gap-x-2`}>
             {itemsToRender.remainingItems.map((item, index) => (
               <div
                 key={index}
@@ -229,47 +242,61 @@ const CategoryCard = React.memo(
                       18+
                     </div>
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 pb-2 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                    <div className="flex items-center justify-start w-full space-x-1.5 z-[100] flex-wrap gap-y-1.5">
+                  <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                    <div className="flex items-center justify-start w-full space-x-1 max-[478px]:space-x-0.5 z-[100] flex-wrap gap-y-1">
                       {item.tvInfo?.sub && (
-                        <div className="flex space-x-0.5 justify-center items-center bg-[#2a2a2a] rounded-[2px] px-2 text-white py-1">
+                        <div className="flex space-x-0.5 justify-center items-center bg-[#2a2a2a] rounded-[2px] px-1.5 text-white py-0.5 max-[478px]:py-0.5 max-[478px]:px-1">
                           <FontAwesomeIcon
                             icon={faClosedCaptioning}
-                            className="text-[11px]"
+                            className="text-[10px]"
                           />
-                          <p className="text-[11px] font-medium">
+                          <p className="text-[10px] font-medium">
                             {item.tvInfo.sub}
                           </p>
                         </div>
                       )}
                       {item.tvInfo?.dub && (
-                        <div className="flex space-x-0.5 justify-center items-center bg-[#2a2a2a] rounded-[2px] px-2 text-white py-1">
+                        <div className="flex space-x-0.5 justify-center items-center bg-[#2a2a2a] rounded-[2px] px-1.5 text-white py-0.5 max-[478px]:py-0.5 max-[478px]:px-1">
                           <FontAwesomeIcon
                             icon={faMicrophone}
-                            className="text-[11px]"
+                            className="text-[10px]"
                           />
-                          <p className="text-[11px] font-medium">
+                          <p className="text-[10px] font-medium">
                             {item.tvInfo.dub}
                           </p>
                         </div>
                       )}
-                      <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
-                        {item.tvInfo.showType.split(" ").shift()}
-                      </div>
-                      <div className="bg-[#2a2a2a] text-white rounded-[2px] px-2 py-1 text-[11px] font-medium">
-                        {item.tvInfo?.duration === "m" ||
-                        item.tvInfo?.duration === "?" ||
-                        item.duration === "m" ||
-                        item.duration === "?"
-                          ? "N/A"
-                          : item.tvInfo?.duration || item.duration || "N/A"}
-                      </div>
+                      {item.tvInfo?.showType && (
+                        <div className="bg-[#2a2a2a] text-white rounded-[2px] px-1.5 py-0.5 text-[10px] font-medium max-[478px]:py-0.5 max-[478px]:px-1 max-[478px]:hidden">
+                          {item.tvInfo.showType.split(" ").shift()}
+                        </div>
+                      )}
+                      {item.releaseDate && (
+                        <div className="bg-[#2a2a2a] text-white rounded-[2px] px-1.5 py-0.5 text-[10px] font-medium max-[478px]:py-0.5 max-[478px]:px-1">
+                          {item.releaseDate}
+                        </div>
+                      )}
+                      {!item.tvInfo?.showType && item.type && (
+                        <div className="bg-[#2a2a2a] text-white rounded-[2px] px-1.5 py-0.5 text-[10px] font-medium max-[478px]:py-0.5 max-[478px]:px-1">
+                          {item.type}
+                        </div>
+                      )}
+                      {(item.tvInfo?.duration || item.duration) && (
+                        <div className="bg-[#2a2a2a] text-white rounded-[2px] px-1.5 py-0.5 text-[10px] font-medium max-[478px]:py-0.5 max-[478px]:px-1 max-[478px]:hidden">
+                          {item.tvInfo?.duration === "m" ||
+                          item.tvInfo?.duration === "?" ||
+                          item.duration === "m" ||
+                          item.duration === "?"
+                            ? "N/A"
+                            : item.tvInfo?.duration || item.duration || "N/A"}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
                 <Link
                   to={`/${item.id}`}
-                  className="text-white font-semibold mt-3 item-title hover:text-[#FFBADE] hover:cursor-pointer line-clamp-1"
+                  className="text-white font-semibold mt-3 item-title hover:text-white hover:cursor-pointer line-clamp-1"
                 >
                   {language === "EN" ? item.title : item.japanese_title}
                 </Link>
