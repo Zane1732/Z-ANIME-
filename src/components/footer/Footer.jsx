@@ -60,10 +60,10 @@ function Footer() {
           {/* Legal Text */}
           <div className="space-y-2 text-sm text-white/40 text-center sm:text-left">
             <p className="max-w-4xl mx-auto sm:mx-0">
-              {website_name} does not host any files, it merely pulls streams from
-              3rd party services. Legal issues should be taken up with the file
-              hosts and providers. {website_name} is not responsible for any media
-              files shown by the video providers.
+              {website_name} 𝖉𝖔𝖊𝖘 𝖓𝖔𝖙 𝖍𝖔𝖘𝖙 𝖆𝖓𝖞 𝖋𝖎𝖑𝖊𝖘, 𝖎𝖙 𝖒𝖊𝖗𝖊𝖑𝖞 𝖕𝖚𝖑𝖑𝖘 𝖘𝖙𝖗𝖊𝖆𝖒𝖘 𝖋𝖗𝖔𝖒
+              3𝖗𝖉 𝖕𝖆𝖗𝖙𝖞 𝖘𝖊𝖗𝖛𝖎𝖈𝖊𝖘. 𝕷𝖊𝖌𝖆𝖑 𝖎𝖘𝖘𝖚𝖊𝖘 𝖘𝖍𝖔𝖚𝖑𝖉 𝖇𝖊 𝖙𝖆𝖐𝖊𝖓 𝖚𝖕 𝖜𝖎𝖙𝖍 𝖙𝖍𝖊 𝖋𝖎𝖑𝖊
+              𝖍𝖔𝖘𝖙𝖘 𝖆𝖓𝖉 𝖕𝖗𝖔𝖛𝖎𝖉𝖊𝖗𝖘.{website_name} 𝖎𝖘 𝖓𝖔𝖙 𝖗𝖊𝖘𝖕𝖔𝖓𝖘𝖎𝖇𝖑𝖊 𝖋𝖔𝖗 𝖆𝖓𝖞 𝖒𝖊𝖉𝖎𝖆
+              𝖋𝖎𝖑𝖊𝖘 𝖘𝖍𝖔𝖜𝖓 𝖇𝖞 𝖙𝖍𝖊 𝖛𝖎𝖉𝖊𝖔 𝖕𝖗𝖔𝖛𝖎𝖉𝖊𝖗𝖘.
             </p>
             <p>© {website_name}. All rights reserved.</p>
           </div>
