@@ -23,8 +23,8 @@ function Contact() {
             <span className="text-white/60 group-hover:text-white">Join our Telegram</span>
           </a>
           <a
-            href="#"
-            target="https://discord.gg/rEh9KrG2DV"
+            href="https://discord.gg/rEh9KrG2DV"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors group"
           >
