@@ -21,8 +21,8 @@ function Footer() {
           {/* A-Z List Section */}
           <div className="mb-6 text-center sm:text-left">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 items-center sm:items-start">
-              <h2 className="text-sm font-medium text-white">A-Z LIST</h2>
-              <span className="text-sm text-white/60">Browse anime alphabetically</span>
+              <h2 className="text-sm font-medium text-white">𝓐-𝓩 𝓛𝓘𝓢𝓣</h2>
+              <span className="text-sm text-white/60">𝓑𝓻𝓸𝔀𝓼𝓮 𝓪𝓷𝓲𝓶𝓮 𝓪𝓵𝓹𝓱𝓪𝓫𝓮𝓽𝓲𝓬𝓪𝓵𝓵𝔂</span>
             </div>
             <div className="flex flex-wrap gap-1.5 justify-center sm:justify-start">
               {["All", "#", "0-9", ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i))].map((item, index) => (
