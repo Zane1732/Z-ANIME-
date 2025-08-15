@@ -64,15 +64,15 @@ function Servers({
         <div className="w-full h-full rounded-lg grid grid-cols-[minmax(0,30%),minmax(0,70%)] overflow-hidden max-[800px]:grid-cols-[minmax(0,40%),minmax(0,60%)] max-[600px]:flex max-[600px]:flex-col max-[600px]:rounded-none max-[600px]:gap-2">
           <div className="h-full bg-[#e0e0e0] px-6 text-black flex flex-col justify-center items-center gap-y-2 max-[600px]:bg-transparent max-[600px]:h-auto max-[600px]:text-white max-[600px]:py-1 max-[600px]:px-2">
             <p className="text-center leading-5 font-medium text-[14px] max-[600px]:text-[13px] max-[600px]:mb-0">
-              You are watching:{" "}
+             𝖄𝖔𝖚 𝖆𝖗𝖊 𝖜𝖆𝖙𝖈𝖍𝖎𝖓𝖌:{" "}
               <br className="max-[600px]:hidden" />
               <span className="font-semibold max-[600px]:text-[#e0e0e0] max-[600px]:ml-1">
                 Episode {activeEpisodeNum}
               </span>
             </p>
             <p className="leading-5 text-[14px] font-medium text-center max-[600px]:text-[12px] max-[600px]:hidden">
-              If the current server doesn&apos;t work, please try other servers
-              beside.
+              𝕴𝖋 𝖙𝖍𝖊 𝖈𝖚𝖗𝖗𝖊𝖓𝖙 𝖘𝖊𝖗𝖛𝖊𝖗 𝖉𝖔𝖊𝖘𝖓&𝖆𝖕𝖔𝖘;𝖙 𝖜𝖔𝖗𝖐, 𝖕𝖑𝖊𝖆𝖘𝖊 𝖙𝖗𝖞 𝖔𝖙𝖍𝖊𝖗 𝖘𝖊𝖗𝖛𝖊𝖗𝖘
+              𝖇𝖊𝖘𝖎𝖉𝖊.
             </p>
           </div>
           <div className="bg-[#1f1f1f] flex flex-col max-[600px]:rounded-lg max-[600px]:p-2">
