@@ -123,7 +123,7 @@ export const useWatch = (animeId, initialEpisodeId) => {
         const filteredServers = data?.filter(
           (server) =>
             server.serverName === "HD-1" ||
-            server.serverName === "HD-2" ||
+            server.serverName === "ADfree" ||
             server.serverName === "HD-3"
         );
         if (filteredServers.some((s) => s.type === "sub")) {
@@ -147,7 +147,7 @@ export const useWatch = (animeId, initialEpisodeId) => {
         const initialServer =
           filteredServers.find(s => s.serverName === savedServerName && s.type === savedServerType) ||
           filteredServers.find(s => s.serverName === savedServerName) ||
-          filteredServers.find(s => s.type === savedServerType && ["HD-1", "HD-2", "HD-3", "HD-4"].includes(s.serverName)) ||
+          filteredServers.find(s => s.type === savedServerType && ["HD-1", "ADfree", "HD-3", "HD-4"].includes(s.serverName)) ||
           filteredServers[0];
 
         setServers(filteredServers);
