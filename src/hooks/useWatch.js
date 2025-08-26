@@ -123,7 +123,7 @@ export const useWatch = (animeId, initialEpisodeId) => {
         const filteredServers = data?.filter(
           (server) =>
             server.serverName === "HD-1" ||
-            server.serverName === "ADfree" ||
+            server.serverName === "HD-2" ||
             server.serverName === "HD-3"
         );
         if (filteredServers.some((s) => s.type === "sub")) {
