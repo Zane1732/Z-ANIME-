@@ -8,8 +8,8 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const FAQ_ITEMS = [
   {
-    question: "Is Z-ANIME safe?",
-    answer: "Yes, Z-ANIME is completely safe to use. We ensure all content is properly scanned and secured for our users."
+    question: "how to use adfree server?",
+    answer: "just click on HD2 for watching it adfree"
   },
   {
     question: "What makes Z-ANIME the best site to watch anime free online?",
