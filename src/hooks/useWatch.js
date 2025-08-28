@@ -142,12 +142,13 @@ export const useWatch = (animeId, initialEpisodeId) => {
             serverName: "HD-4",
           });
         }
+        
         const savedServerName = localStorage.getItem("server_name");
         const savedServerType = localStorage.getItem("server_type");
         const initialServer =
           filteredServers.find(s => s.serverName === savedServerName && s.type === savedServerType) ||
           filteredServers.find(s => s.serverName === savedServerName) ||
-          filteredServers.find(s => s.type === savedServerType && ["HD-1", "HD-2", "HD-3", "HD-4"].includes(s.serverName)) ||
+          filteredServers.find(s => s.type === savedServerType && ["HD-1", "HD-2", "HD-3", "HD-4", "Nest"].includes(s.serverName)) ||
           filteredServers[0];
 
         setServers(filteredServers);
@@ -175,8 +176,8 @@ export const useWatch = (animeId, initialEpisodeId) => {
     )
       return;
     if (
-      (activeServerName?.toLowerCase() === "hd-1" || activeServerName?.toLowerCase() === "hd-4") 
-        &&
+      (activeServerName?.toLowerCase() === "hd-1" || activeServerName?.toLowerCase() === "hd-4" || activeServerName?.toLowerCase() === "nest") 
+      &&
       !serverLoading
     ) {
       setBuffering(false);
@@ -188,12 +189,12 @@ export const useWatch = (animeId, initialEpisodeId) => {
       try {
         const server = servers.find((srv) => srv.data_id === activeServerId);
         if (server) {
-          const data = await getStreamInfo(
+            const data = await getStreamInfo(
             animeId,
             episodeId,
-            server.serverName.toLowerCase()==="hd-3"?"hd-1":server.serverName.toLowerCase(),
+            server.serverName.toLowerCase()==="hd-3"?"hd-1":server.serverName.toLowerCase()==="nest"?"hd-1":server.serverName.toLowerCase(),
             server.type.toLowerCase()
-          );
+            );
           setStreamInfo(data);
           setStreamUrl(data?.streamingLink?.link?.file || null);
           setIntro(data?.streamingLink?.intro || null);
