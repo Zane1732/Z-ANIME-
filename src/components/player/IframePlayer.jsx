@@ -10,13 +10,16 @@ export default function IframePlayer({
   episodeNum,
   episodes,
   playNext,
-  autoNext,
+  autoNext, 
+  aniid,
 }) {
   const baseURL =
     serverName.toLowerCase() === "hd-1"
       ? import.meta.env.VITE_BASE_IFRAME_URL
       : serverName.toLowerCase() === "hd-4"
       ? import.meta.env.VITE_BASE_IFRAME_URL_2
+      : serverName.toLowerCase() === "nest"
+      ? import.meta.env.VITE_BASE_IFRAME_URL_3
       : undefined; 
 
   const [loading, setLoading] = useState(true);
@@ -34,7 +37,7 @@ export default function IframePlayer({
       setIframeLoaded(false);
       setIframeSrc("");
 
-      setIframeSrc(`${baseURL}/${episodeId}/${servertype}`);
+      setIframeSrc(serverName.toLowerCase() === "nest" ? `${baseURL}/${aniid}/${episodeNum}/hindi` : `${baseURL}/${episodeId}/${servertype}`);
     };
 
     loadIframeUrl();
