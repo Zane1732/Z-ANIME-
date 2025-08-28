@@ -40,6 +40,7 @@ export default function Watch() {
     animeInfo,
     episodes,
     nextEpisodeSchedule,
+    anilistId,
     animeInfoLoading,
     totalEpisodes,
     isFullOverview,
@@ -230,7 +231,7 @@ export default function Watch() {
             <div ref={playerRef} className="player w-full h-fit bg-black flex flex-col rounded-xl overflow-hidden">
               {/* Video Container */}
               <div ref={videoContainerRef} className="w-full relative aspect-video bg-black">
-                {!buffering ? (["hd-1", "hd-4"].includes(activeServerName.toLowerCase()) ?
+                {!buffering ? (["hd-1", "hd-4", "nest"].includes(activeServerName.toLowerCase()) ?
                   <IframePlayer
                     episodeId={episodeId}
                     servertype={activeServerType}
@@ -240,6 +241,7 @@ export default function Watch() {
                     episodes={episodes}
                     playNext={(id) => setEpisodeId(id)}
                     autoNext={autoNext}
+                    aniid={animeInfo.anilistId}
                   /> : <Player
                     streamUrl={streamUrl}
                     subtitles={subtitles}
