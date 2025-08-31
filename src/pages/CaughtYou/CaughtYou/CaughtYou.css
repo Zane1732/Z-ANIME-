@@ -1,96 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap'); /* Axis-like bold font */
 
 .caught-container {
-  font-family: 'Archivo Black', sans-serif;
-  background: radial-gradient(circle at center, #0d0d0d 0%, #000000 100%);
-  color: #fff;
-  text-align: center;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a, #1a0a1a, #0a1a0a);
+  color: #fff;
+  text-align: center;
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .caught-title {
-  font-size: 5rem;
-  font-weight: 900;
-  color: #ff0000;
-  position: relative;
-  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: bold;
   margin-bottom: 1rem;
+  text-shadow: 0 0 20px #ff0066;
+  animation: glitch-main 2s infinite;
 }
 
-/* Glitch Effect */
 .glitch {
   position: relative;
-  display: inline-block;
+  color: #ff0066;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
+
 .glitch::before,
 .glitch::after {
   content: attr(data-text);
   position: absolute;
   left: 0;
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
 }
+
 .glitch::before {
-  animation: glitchTop 1.5s infinite linear alternate-reverse;
-  color: rgb(255, 0, 0);
-  z-index: -1;
+  color: #00ffff;
+  animation: glitch-1 2.5s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
+
 .glitch::after {
-  animation: glitchBottom 2s infinite linear alternate-reverse;
-  color: rgb(255, 123, 0);
-  z-index: -2;
-}
-@keyframes glitchTop {
-  0% {
-    clip: rect(0, 9999px, 0, 0);
-  }
-  20% {
-    clip: rect(0, 9999px, 80%, 0);
-    transform: translate(-5px, -3px);
-  }
-  40% {
-    clip: rect(0, 9999px, 60%, 0);
-    transform: translate(5px, 3px);
-  }
-  100% {
-    clip: rect(0, 9999px, 0, 0);
-  }
-}
-@keyframes glitchBottom {
-  0% {
-    clip: rect(0, 9999px, 0, 0);
-  }
-  20% {
-    clip: rect(20%, 9999px, 9999px, 0);
-    transform: translate(5px, 3px);
-  }
-  40% {
-    clip: rect(40%, 9999px, 9999px, 0);
-    transform: translate(-5px, -3px);
-  }
-  100% {
-    clip: rect(0, 9999px, 0, 0);
-  }
+  color: #00ff00;
+  animation: glitch-2 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
 
-.caught-subtitle {
+.typing-container {
+  min-height: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-text {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #ccc;
+  min-height: 2rem;
 }
 
-.caught-messages {
-  margin: 1rem 0;
-  font-size: 1.2rem;
-  line-height: 2rem;
-  color: #bbb;
+.cursor {
+  animation: blink 1s infinite;
+  color: #ff0066;
+  font-weight: bold;
 }
+
+.all-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeInMessages 1s ease-in-out forwards;
+}
+
+.fade-in-message {
+  font-size: 1.2rem;
+  color: #bbb;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-in-message:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-message:nth-child(2) { animation-delay: 0.3s; }
+.fade-in-message:nth-child(3) { animation-delay: 0.5s; }
+.fade-in-message:nth-child(4) { animation-delay: 0.7s; }
+.fade-in-message:nth-child(5) { animation-delay: 0.9s; }
 
 .caught-btn {
   margin-top: 2rem;
@@ -104,7 +104,64 @@
   cursor: pointer;
   transition: 0.3s;
 }
+
 .caught-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #ff00dd, 0 0 40px #00fff2;
+}
+
+.rick-roll-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  background-image: url('https://media.tenor.com/4YCgHLAsE3UAAAAm/rick-roll.webp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: -3;
+  border-radius: 15px;
+}
+
+/* Keyframe Animations */
+@keyframes glitch-main {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); }
+  10% { clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%); }
+  20% { clip-path: polygon(0 0, 100% 0, 100% 25%, 0 25%); }
+  30% { clip-path: polygon(0 35%, 100% 35%, 100% 70%, 0 70%); }
+  40% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  50% { clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%); }
+}
+
+@keyframes glitch-2 {
+  0% { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+  10% { clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%); }
+  20% { clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%); }
+  30% { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); }
+  40% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  50% { clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%); }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeInMessages {
+  to { opacity: 1; }
 }
